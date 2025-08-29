@@ -2,41 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ThumbBoost Design System - YC-style minimal SaaS aesthetic
+All colors MUST be HSL. Focus on conversion and clarity.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - clean, minimal palette */
+    --background: 210 20% 98%; /* Off-white #F8FAFC */
+    --foreground: 222 47% 11%; /* Slate Gray #0F172A */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system */
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: 222 47% 11%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary brand - Indigo for CTAs and key actions */
+    --primary: 240 80% 60%; /* Indigo #4F46E5 */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 240 84% 55%;
+    --primary-glow: 240 80% 60%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - subtle background actions */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - subtle text and backgrounds */
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 25% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Teal/Cyan for highlights */
+    --accent: 188 94% 42%; /* Teal #06B6D4 */
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 188 100% 50%; /* Neon cyan #00E5FF */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* UI elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 240 80% 60%;
 
-    --radius: 0.5rem;
+    /* Design tokens */
+    --radius: 0.625rem; /* 10px rounded corners */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(var(--background)));
+
+    /* Shadows - YC-style subtle elevation */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--foreground) / 0.05);
+    --shadow-md: 0 4px 8px -2px hsl(var(--foreground) / 0.1);
+    --shadow-lg: 0 6px 18px 0 hsl(var(--foreground) / 0.06);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--foreground) / 0.1);
+
+    /* Typography scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+
+    /* Animations */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +98,25 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 222 47% 11%;
+    --foreground: 210 20% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 20% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 240 80% 65%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 220 14% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 188 94% 42%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 14% 16%;
+    --input: 220 14% 16%;
+    --ring: 240 80% 65%;
   }
 }
 
@@ -100,6 +126,116 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero section styles */
+  .hero-headline {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subheading {
+    @apply text-lg md:text-xl text-muted-foreground leading-relaxed;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    @apply bg-card rounded-[var(--radius)] p-6 border border-border shadow-[var(--shadow-sm)] 
+           hover:shadow-[var(--shadow-md)] transition-[var(--transition-smooth)];
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] text-primary-foreground hover:bg-[hsl(var(--primary-hover))] 
+           px-8 py-3 rounded-[var(--radius)] font-semibold text-base
+           shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]
+           transition-[var(--transition-smooth)] hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80
+           px-6 py-3 rounded-[var(--radius)] font-medium text-base
+           border border-border hover:border-border/60
+           transition-[var(--transition-smooth)];
+  }
+
+  .btn-accent {
+    @apply bg-[hsl(var(--accent))] text-accent-foreground hover:bg-[hsl(var(--accent))/90]
+           px-6 py-3 rounded-[var(--radius)] font-semibold text-base
+           shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]
+           transition-[var(--transition-smooth)] hover:-translate-y-0.5;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
