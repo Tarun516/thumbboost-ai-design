@@ -17,13 +17,13 @@ const Header = () => {
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
-              Features
+              Product
             </a>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </a>
-            <a href="#examples" className="text-muted-foreground hover:text-foreground transition-colors">
-              Examples
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              Docs
             </a>
           </nav>
 
@@ -32,7 +32,10 @@ const Header = () => {
             <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
               Sign In
             </Button>
-            <Button className="btn-primary">
+            <Button 
+              className="bg-primary hover:bg-primary-hover text-primary-foreground px-6 py-2 rounded-lg font-semibold"
+              onClick={() => window.location.href = "/generate"}
+            >
               Get Started
             </Button>
           </div>

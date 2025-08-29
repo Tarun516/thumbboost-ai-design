@@ -3,33 +3,18 @@ import { Zap, Target, Smartphone, Clock, BarChart3, Users } from "lucide-react";
 const features = [
   {
     icon: Zap,
-    title: "AI-Powered Generation",
-    description: "Advanced AI creates thumbnails optimized for each platform's algorithm and audience behavior."
-  },
-  {
-    icon: Target,
-    title: "Platform Optimized",
-    description: "Perfect sizing and styling for YouTube, TikTok, Instagram, and more. Each variant tailored for maximum engagement."
-  },
-  {
-    icon: Clock,
-    title: "1-Minute Setup",
-    description: "Upload your content, answer quick questions about your vibe and audience, get results instantly."
-  },
-  {
-    icon: BarChart3,
-    title: "High Converting",
-    description: "Our AI is trained on millions of high-performing thumbnails to maximize your click-through rates."
+    title: "Fast Prompts",
+    description: "Answer a 1-minute brief. We rewrite prompts and deliver ready-to-use thumbnails."
   },
   {
     icon: Users,
-    title: "Creator Focused",
-    description: "Built specifically for content creators, small teams, and agencies who need quality at scale."
+    title: "Likeness Preserved", 
+    description: "Keep face/product appearance consistent across all thumbnail edits."
   },
   {
     icon: Smartphone,
-    title: "Works Everywhere",
-    description: "Optimized for mobile and desktop. Generate, preview, and download anywhere you create content."
+    title: "Export Ready",
+    description: "Download for YouTube, Shorts, TikTok & Instagram presets with perfect sizing."
   }
 ];
 
@@ -49,21 +34,19 @@ const Features = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={feature.title}
-              className="feature-card animate-fade-in group"
+              className="bg-white rounded-xl shadow-sm p-8 border border-border hover:shadow-md transition-all duration-300 text-center group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
+              <div className="flex flex-col items-center space-y-4">
+                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                  <feature.icon className="w-8 h-8 text-accent" />
                 </div>
-                <div className="flex-1 space-y-2">
-                  <h3 className="text-xl font-semibold text-foreground">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-foreground">
                     {feature.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">

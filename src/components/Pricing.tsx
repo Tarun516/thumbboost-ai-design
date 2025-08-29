@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, Star, Zap } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
 const plans = [
   {
@@ -82,7 +82,7 @@ const Pricing = () => {
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-1">
-                    <Star className="w-4 h-4" />
+                    <Sparkles className="w-4 h-4" />
                     <span>Most Popular</span>
                   </div>
                 </div>
@@ -114,14 +114,11 @@ const Pricing = () => {
 
               {/* CTA Button */}
               <Button 
-                className={`w-full ${
-                  plan.popular 
-                    ? 'btn-primary' 
-                    : 'btn-secondary border-border hover:border-primary/50'
-                }`}
+                className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-3 rounded-lg font-semibold group"
+                onClick={() => window.location.href = "/generate"}
               >
                 {plan.cta}
-                {plan.popular && <Zap className="ml-2 w-4 h-4" />}
+                {plan.popular && <Sparkles className="ml-2 w-4 h-4" />}
               </Button>
             </div>
           ))}
